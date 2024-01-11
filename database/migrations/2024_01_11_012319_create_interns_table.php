@@ -11,17 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('profiles', function (Blueprint $table) {
+        Schema::create('interns', function (Blueprint $table) {
             $table->id();
             $table->string("user_id");
+            $table->string("company_id");
+            $table->string("title");
+            $table->string("slug");
+            $table->longText("description");
+            $table->integer("category_id");
+            $table->string("position");
             $table->string("address");
-            $table->string("gender");
-            $table->string("bio");
-            $table->string("dob");
-            $table->string("cover_letter");
-            $table->string("school_certificate");
-            $table->string("resume");
-            $table->string("avatar");
+            $table->string("type");
+            $table->integer("status");
+            $table->date("last_date");
             $table->timestamps();
         });
     }
@@ -31,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('profiles');
+        Schema::dropIfExists('interns');
     }
 };
