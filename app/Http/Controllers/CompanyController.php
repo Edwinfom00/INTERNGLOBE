@@ -3,17 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Intern;
 use Illuminate\Http\Request;
 
-class InternController extends Controller
+class CompanyController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return Intern::all();
+        //
     }
 
     /**
@@ -21,9 +20,7 @@ class InternController extends Controller
      */
     public function store(Request $request)
     {
-        $intern = new Intern();
-        $intern->fill($request->all());
-        $intern = Intern::create($request->validated());
+        //
     }
 
     /**
@@ -31,7 +28,7 @@ class InternController extends Controller
      */
     public function show(string $id)
     {
-        return Intern::FindOrFail($id);
+        //
     }
 
     /**

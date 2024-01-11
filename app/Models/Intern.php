@@ -20,4 +20,8 @@ class Intern extends Model
         'status',
         'lastdate'
     ];
+
+    public function company(){
+        return $this->belongsTo('App\Company');
+    }
 }
