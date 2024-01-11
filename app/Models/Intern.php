@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Intern extends Model
 {
     use HasFactory;
+
+
+    protected $fillabes = [
+        'title',
+        'slug',
+        'description',
+        'position',
+        'address',
+        'type',
+        'status',
+        'lastdate'
+    ];
 }
