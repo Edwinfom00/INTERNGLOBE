@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\InternFormRequest;
 use App\Models\Intern;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,7 @@ class InternController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(InternFormRequest $request)
     {
         $intern = new Intern();
         $intern->fill($request->all());
@@ -37,9 +38,11 @@ class InternController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(InternFormRequest $request, string $id)
     {
-        //
+        $intern = Intern::FindOrFail($id);
+        $intern->fill($request->all());
+        $intern = Intern::update($request->validated());
     }
 
     /**
