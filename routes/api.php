@@ -22,3 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::get('/intern',[InternController::class, 'index']);
+
+Route::get('/intern/{id}',[InternController::class, 'show']);

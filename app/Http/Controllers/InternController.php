@@ -29,7 +29,7 @@ class InternController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return Intern::FindOrFail($id);
     }
 
     /**
