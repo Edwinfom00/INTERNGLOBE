@@ -23,8 +23,26 @@ class InternController extends Controller
     public function store(InternFormRequest $request)
     {
         $intern = new Intern();
-        $intern->fill($request->all());
-        $intern = Intern::create($request->validated());
+
+        // $user_id = auth()->user()->id;
+        // $company = Company::where('user_id', $user_id)->first();
+        // $company_id = $company->id;
+
+        $intern::create([
+            // 'user_id'=> $user_id,
+            // 'company_id'=> $company_id,
+            'title' => request('title'),
+            'slug' => Str::slug(request('title')),
+            'description' => request('description'),
+            'category_id' => request('category'),
+            'position' => request('position'),
+            'address' => request('address'),
+            'gender' => request('gender'),
+            'type' => request('type'),
+            'last_date' => request('last_date'),
+        ]);
+
+        return redirect()->back()->with('success', 'Intern posted Successfully.');
     }
 
     /**
@@ -40,9 +58,10 @@ class InternController extends Controller
      */
     public function update(InternFormRequest $request, string $id)
     {
-        $intern = Intern::FindOrFail($id);
-        $intern->fill($request->all());
-        $intern = Intern::update($request->validated());
+         $intern = Intern::findOrFail($id);
+        $intern->update($request->all());
+
+        return redirect()->back()->with('success', 'Intern updated Successfully.');
     }
 
     /**

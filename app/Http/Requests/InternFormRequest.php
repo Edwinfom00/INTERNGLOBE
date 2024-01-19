@@ -22,12 +22,15 @@ class InternFormRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title'=>'required min:8',
-            'slug' =>'required min:8',
-            'position'=>'required min:8',
-            'address'=>'required min:4',
-            'type' => 'required min:2',
-            'lastdate' =>'required'
+            'title'=> 'required|max:150',
+            'position'=> 'required|max:255',
+            'description'=> 'required|max:5000',
+            'address'=> 'required|max:500',
+            'gender'=> 'required',
+            'salary'=> 'required',
+            'number_of_vacancy'=> 'required|numeric',
+            'type'=> 'required',
+            'last_date'=> 'required',
         ];
     }
 }

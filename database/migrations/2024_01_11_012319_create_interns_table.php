@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer("category_id");
             $table->string("position");
             $table->string("address");
+            $table->string("gender");
             $table->string("type");
             $table->integer("status");
             $table->date("last_date");
